@@ -257,12 +257,69 @@
     if (changed) saveCart();
   }
 
+    function flyToCart(sourceElement) {
+    const cartBtn = document.getElementById('openCart');
+    if (!cartBtn || !sourceElement) return;
+
+    const startRect = sourceElement.getBoundingClientRect();
+    const endRect = cartBtn.getBoundingClientRect();
+
+    // Create a clone of the product image or button
+    let flyClone;
+    const img = sourceElement.querySelector('img');
+    
+    if (img) {
+      flyClone = img.cloneNode();
+    } else {
+      // If it's an emoji or text
+      flyClone = document.createElement('div');
+      flyClone.style.background = 'var(--brand)';
+      flyClone.style.color = '#fff';
+      flyClone.style.display = 'grid';
+      flyClone.style.placeItems = 'center';
+      flyClone.style.fontSize = '1.5rem';
+      flyClone.textContent = '🛒';
+    }
+
+    flyClone.classList.add('fly-item');
+    flyClone.style.width = startRect.width + 'px';
+    flyClone.style.height = startRect.height + 'px';
+    flyClone.style.left = startRect.left + 'px';
+    flyClone.style.top = startRect.top + 'px';
+
+    document.body.appendChild(flyClone);
+
+    // Trigger reflow to ensure the browser renders it before moving
+    void flyClone.offsetWidth;
+
+    // Calculate the distance to the cart icon
+    const deltaX = endRect.left + (endRect.width / 2) - (startRect.left + startRect.width / 2);
+    const deltaY = endRect.top + (endRect.height / 2) - (startRect.top + startRect.height / 2);
+
+    // Fly!
+    flyClone.style.transform = `translate(${deltaX}px, ${deltaY}px) scale(0.2)`;
+    flyClone.style.opacity = '0.5';
+
+    // Remove element after animation ends and bump the cart
+    setTimeout(() => {
+      flyClone.remove();
+      cartBtn.classList.add('cart-bump');
+      setTimeout(() => cartBtn.classList.remove('cart-bump'), 300);
+    }, 800);
+  }
+
   function addToCart(id, btn) {
     const p = DB.products.find(x => x.id === id);
     if (!p) return;
+    
     cart[id] = (cart[id] || 0) + 1;
     saveCart(); renderCart();
     toast(`✓ ${p.name} added to cart`);
+
+    // Trigger the animation from the product card
+    const card = btn.closest('.card');
+    if (card) flyToCart(card.querySelector('.thumb'));
+
     if (btn) {
       btn.textContent = '✓ Added';
       btn.classList.add('added');
