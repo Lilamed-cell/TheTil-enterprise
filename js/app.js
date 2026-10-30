@@ -383,4 +383,14 @@
   }
 
   if (DB.__tampered) toast('⚠️ Stored data failed integrity check');
+
+    /* Solar Solutions button filter */
+  const solarBtn = document.getElementById('solarBtn');
+  if (solarBtn) {
+    solarBtn.addEventListener('click', () => {
+      activeCat = 'Solar';       // Sets the category
+      renderChips();             // Highlights the "Solar" chip
+      renderGrid();              // Filters the products
+    });
+  }
 })();
