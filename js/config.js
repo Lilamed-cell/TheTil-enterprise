@@ -1,7 +1,7 @@
 'use strict';
 
 const CONFIG = Object.freeze({
-  VERSION: '2.0.2',
+  VERSION: '2.0.3',
   APP_NAME: 'TheTil Enterprise',
 
   KEYS: {
