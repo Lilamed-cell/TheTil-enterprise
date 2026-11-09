@@ -53,6 +53,7 @@ const CONFIG = Object.freeze({
       currency:  'GH₵',
       whatsapp:  '233241656484',
       footName:  'TheTil Enterprise Ghana Ltd.',
+      paystackLink: 'https://paystack.shop/pay/YOUR-LINK-HERE',
       topbar:    '🚚 Free delivery around Kumasi - orders over GH₵ 20,000  •   ☎️ +233 24 165 6484 ☎️ +233 20 717 0077',
       heroTitle: 'TheTil Enterprise: Power your home. Upgrade your life.',
       heroText:  'Genuine fridges, TVs, Phones, Washing Machines, Ovens and complete Solar Systems — with warranty, nationwide delivery and installation across Ghana.',

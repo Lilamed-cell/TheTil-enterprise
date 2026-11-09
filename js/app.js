@@ -380,6 +380,8 @@
     $('subtotal').textContent = money(total);
     $('total').textContent = money(total);
     $('checkout').disabled = !entries.length;
+    $('paystackCheckout').disabled = !entries.length;
+    
   }
 
   function checkout() {
@@ -449,5 +451,28 @@
       renderChips();             // Highlights the "Solar" chip
       renderGrid();              // Filters the products
     });
+  }
+    /* PAYSTACK CHECKOUT */
+  function paystackCheckout() {
+    const entries = Object.entries(cart);
+    if (!entries.length) return;
+
+    const link = DB.settings.paystackLink;
+    if (!link || link.includes('YOUR-LINK-HERE')) {
+      toast('⚠️ Paystack link not set up yet by the admin.');
+      return;
+    }
+
+    // Open Paystack in a new tab
+    window.open(link, '_blank', 'noopener');
+    
+    // Remind them to enter the total
+    toast(`Opening Paystack. Please enter total: ${money(cartTotal())}`);
+  }
+
+  // Wire up the button
+  const paystackBtn = document.getElementById('paystackCheckout');
+  if (paystackBtn) {
+    paystackBtn.onclick = paystackCheckout;
   }
 })();
