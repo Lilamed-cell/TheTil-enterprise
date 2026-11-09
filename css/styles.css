@@ -211,7 +211,7 @@ footer a:hover{color:var(--accent)}
   animation: cartBump 0.3s ease;
 }
 /* PAYSTACK BUTTON */
-.paystack-btn{
+.paystack-btn {
   width: 100%;
   padding: .85rem;
   border-radius: 10px;
@@ -226,6 +226,13 @@ footer a:hover{color:var(--accent)}
   margin-top: .6rem;
   transition: .15s;
 }
-.paystack-btn:hover{ background: #1da851; }
-.paystack-btn:disabled{ background: #cbd5e1; cursor: not-allowed; }
+
+.paystack-btn:hover {
+  background: #1da851;
+}
+
+.paystack-btn:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+}
 }
