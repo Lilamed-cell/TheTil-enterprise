@@ -210,21 +210,19 @@ footer a:hover{color:var(--accent)}
 .cart-bump {
   animation: cartBump 0.3s ease;
 }
-/* PAYSTACK BUTTON */
-.paystack-btn {
+/* PAYSTACK BUTTON - DEBUG */
+.paystack-btn{
   width: 100%;
-  padding: .85rem;
-  border-radius: 10px;
-  background: #25D366; /* WhatsApp Green */
-  color: #fff;
-  font-weight: 800;
-  font-size: .95rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: .5rem;
-  margin-top: .6rem;
-  transition: .15s;
+  padding: 1rem;
+  margin-top: 10px;
+  background: #09A5DB !important;
+  color: #ffffff !important;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 2px solid #000000; /* Black border to make it obvious */
+  display: block !important;
+  cursor: pointer;
 }
 
 .paystack-btn:hover {
