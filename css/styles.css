@@ -212,20 +212,20 @@ footer a:hover{color:var(--accent)}
 }
 /* PAYSTACK BUTTON */
 .paystack-btn{
-  width:100%;
-  padding:.85rem;
-  border-radius:10px;
-  background:#09A5DB;
-  color:#fff;
-  font-weight:800;
-  font-size:.95rem;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:.5rem;
-  margin-top:.6rem;
-  transition:.15s;
+  width: 100%;
+  padding: .85rem;
+  border-radius: 10px;
+  background: #25D366; /* WhatsApp Green */
+  color: #fff;
+  font-weight: 800;
+  font-size: .95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  margin-top: .6rem;
+  transition: .15s;
 }
-.paystack-btn:hover{ background:#078bb9; }
-.paystack-btn:disabled{ background:#cbd5e1; cursor:not-allowed; }
+.paystack-btn:hover{ background: #1da851; }
+.paystack-btn:disabled{ background: #cbd5e1; cursor: not-allowed; }
 }
