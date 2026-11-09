@@ -463,14 +463,10 @@
       return;
     }
 
-    // Open Paystack in a new tab
     window.open(link, '_blank', 'noopener');
-    
-    // Remind them to enter the total
     toast(`Opening Paystack. Please enter total: ${money(cartTotal())}`);
   }
 
-  // Wire up the button
   const paystackBtn = document.getElementById('paystackCheckout');
   if (paystackBtn) {
     paystackBtn.onclick = paystackCheckout;
